@@ -8,8 +8,232 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    
+    <!-- KaTeX for LaTeX rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body, {
+            delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false}
+            ]
+        });">
+    </script>
     <link rel="stylesheet" href="landing_style.css">
+    <style>
+        /* ── Mission statement bracket section ── */
+        .mission-section {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 4rem 3rem 3rem;
+        }
+        .mission-lead {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.75rem;
+            font-style: bold;
+            line-height: 1.75;
+        }
+        .mission-bracket-group {
+            display: flex;
+            align-items: stretch;
+            gap: 1.5rem;
+        }
+        .mission-bracket-bar {
+            width: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+        .mission-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 0.25rem 0;
+        }
+        .mission-item {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+        .mission-item span {
+            color: var(--accent);
+            font-style: italic;
+            margin-right: 0.1rem;
+        }
+
+        /* ── Styled belief lists ── */
+        .belief-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 1.5rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .belief-list li {
+            /* display: flex; */
+            align-items: baseline;
+            gap: 0.8rem;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.9;
+        }
+        .belief-list li::before {
+            content: '';
+            display: inline-block;
+            width: 5px;
+            height: 5px;
+            min-width: 5px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin-right: 0.5em;
+            vertical-align: middle;
+        }
+
+        /* ── LaTeX display block ── */
+        .latex-block {
+            background: var(--bg-secondary, #111);
+            border: 1px solid var(--border, #2a2a2a);
+            border-left: 4px solid var(--accent);
+            border-radius: 6px;
+            padding: 1.25rem 1.75rem;
+            margin: 1.25rem 0 1.5rem;
+            overflow-x: auto;
+        }
+        .latex-block .katex-display {
+            margin: 0.5rem 0;
+        }
+        .latex-note {
+            font-size: 0.87rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-top: 0.75rem;
+        }
+
+        /* ── Indented sub-content ── */
+        .belief-subcontent {
+            margin: 0.5rem 0 0.5rem 1.25rem;
+            padding-left: 1rem;
+            border-left: 2px solid var(--accent);
+            color: var(--text-secondary);
+            font-size: 0.97rem;
+            line-height: 1.8;
+        }
+
+        /* ── About Me two-column layout ── */
+        .about-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 3.5rem;
+            align-items: start;
+            padding: 6rem 4rem 3rem;
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+        .profile-pic {
+            width: 100%;
+            height: 25rem;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 4px;
+            border: 1px solid var(--border, #2a2a2a);
+            display: block;
+        }
+        .about-text h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+        .about-text p {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            line-height: 1.85;
+            margin-bottom: 0.85rem;
+        }
+        .about-back {
+            display: inline-block;
+            margin-top: 1.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: transform 0.3s ease;
+        }
+        .about-back:hover { transform: translateX(-5px); }
+
+        /* ── Experience timeline ── */
+        .timeline-section {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 2rem 4rem 6rem;
+        }
+        .timeline-section h2 {
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            color: var(--accent);
+            border-bottom: 2px solid var(--border, #2a2a2a);
+            padding-bottom: 0.5rem;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 2.25rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            bottom: 0;
+            width: 2px;
+            background: var(--border, #2a2a2a);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.6rem;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 2px solid var(--bg-primary, #0a0a0a);
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+        .timeline-date {
+            font-size: 0.8rem;
+            color: var(--accent);
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+        }
+        .timeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            margin-bottom: 0.35rem;
+        }
+        .timeline-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 700px) {
+            .about-layout {
+                grid-template-columns: 1fr;
+                padding: 5rem 1.5rem 2rem;
+            }
+            .profile-pic { width: 150px; }
+            .timeline-section { padding: 1rem 1.5rem 4rem; }
+            .mission-section { padding: 3rem 1.5rem; }
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -17,6 +241,7 @@
             <a href="#" class="logo" data-page="home">∞</a>
             <ul class="nav-links">
                 <li><a href="#" data-page="home">Home</a></li>
+                <li><a href="#" data-page="aboutme">About</a></li>
                 <li><a href="#" data-page="art">Art</a></li>
                 <li><a href="#" data-page="blog">Blog</a></li>
                 <li><button class="theme-toggle" id="themeToggle">Light Mode</button></li>
@@ -24,12 +249,12 @@
         </div>
     </nav>
 
-    <!-- Home Page -->
+    <!-- ════════════ HOME PAGE ════════════ -->
     <div class="page active" id="home">
+
         <section class="main">
             <div class="robot-container">
                 <div class="robot-placeholder">
-                    <!-- Placeholder for robot animation -->
                     <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="150" cy="150" r="60" fill="var(--accent)" opacity="0.3"/>
                         <rect x="120" y="80" width="60" height="80" fill="var(--accent)" opacity="0.5"/>
@@ -43,119 +268,197 @@
                 </div>
             </div>
             <div class="main-content">
-                <h1>Hi, I'm Mukilan</h1>
-                <!-- <h1>Building Futures</h1> -->
-                <p class="main-subtitle">Teaching machines to learn, so we can learn to be human</p>
+                <h1>Hi, I'm <a href="#" class="animated-link" data-page="aboutme">Mukilan</a></h1>
+                <p class="main-subtitle">I am a curious human who enjoys exploring possibilities, interacting with the world intentionally, and teaching machines what it means to be alive.
+                    I find it impossible to work with robots and not learn to love life a little bit more; you find the magnitude of complex ability that is hidden in the human mundane.</p>
             </div>
         </section>
 
-        <!-- <section class="i-build-section">
-            <div class="i-build-grid">
-                <div class="build-card fade-in-on-scroll">
-                    <div class="build-number">01</div>
-                    <h3 class="build-title">Robots</h3>
-                    <p class="build-description">
-                        Teaching machines to learn has taught me to love life more intentionally. To replicate human experience, you must study it carefully—dissecting how we sense, decide, and act. Building robots isn't just engineering; it's philosophy in motion.
-                    </p>
-                </div>
-                <div class="build-card fade-in-on-scroll">
-                    <div class="build-number">02</div>
-                    <h3 class="build-title">Organizations</h3>
-                    <p class="build-description">
-                        Leading 460+ people taught me systematic thinking about sales, alignment, and community building. I've built multiple organizations from 2 people to bustling communities. The patterns in human coordination mirror the patterns in machine learning.
-                    </p>
-                </div>
-                <div class="build-card fade-in-on-scroll">
-                    <div class="build-number">03</div>
-                    <h3 class="build-title">Possibility</h3>
-                    <p class="build-description">
-                        Observing others has unlocked doors to what's possible. If you're unaware of greatness, how can you take action toward it? I'm endlessly obsessed with helping people become their greatest form—unlocking the bounds of imagination.
-                    </p>
+        <!-- Mission statement with accent bracket -->
+        <section class="mission-section">
+            <p class="mission-lead">Ultimately, I want to enable as many people as I can to be curious and unlock curiosity to:</p>
+            <div class="mission-bracket-group">
+                <div class="mission-bracket-bar"></div>
+                <div class="mission-items">
+                    <div class="mission-item"><span>Imagine</span> without constraints</div>
+                    <div class="mission-item"><span>Evaluate</span> consequences with nuance</div>
+                    <div class="mission-item"><span>Act</span> with intention towards maximum good</div>
                 </div>
             </div>
-        </section> -->
+        </section>
 
+        <!-- Core Beliefs -->
         <section class="beliefs-section parallax-section">
             <div class="parallax-bg"></div>
             <h2 style="font-size: 3rem; margin-bottom: 3rem; text-align: center;">Core Beliefs</h2>
-            
+
+            <!-- 1. Uncertainty & Information -->
             <div class="belief-item">
-                <h3 class="belief-title">On Uncertainty & Action</h3>
-                <p class="belief-content">
-                    Making decisions under uncertainty is a superpower. We're often terribly calibrated at estimating our own confidence, yet waiting for certainty guarantees inaction. Do it afraid. Get started. Action transforms possibility into reality. Being wrong is painful, but staying still out of fear of being wrong is worse—pain is information, and suffering happens when we deny ourselves that information.
-                </p>
+                <h3 class="belief-title">On Uncertainty & Information</h3>
+                <ul class="belief-list">
+                    <li class="belief-content">Wager on hope. Have the audacity to believe that things can be better.</li>
+
+                    <div class="latex-block">
+                        <div>$$P(\text{good} \mid a = \text{bad}) = 0 \pm \varepsilon$$</div>
+                        <div>$$P(\text{good} \mid a = \text{good}) > 0 \pm \varepsilon$$</div>
+                        <div>$$\text{good} = \arg\max_{a \in \mathcal{A}}\, P(\text{outcome} = \text{good} \mid a)$$</div>
+                        <div>$$\mathcal{A} = \{\text{good},\; \text{bad}\}$$</div>
+                        <p class="latex-note">where $\varepsilon$ accounts for natural randomness in outcomes.</p>
+                    </div>
+
+                    <li class="belief-content">Feelings are awesome sensors: there are no good or bad emotions, only informative ones. Yes, there are emotions that feel bad, and those are ones that are indicative of a need for change in actions. Feelings indicate something important find the source.
+                    </li>
+                </ul>
+                
             </div>
 
+            <!-- 2. Intentional Actions -->
             <div class="belief-item">
-                <h3 class="belief-title">On Feelings as Sensors</h3>
-                <p class="belief-content">
-                    Feelings aren't good or bad—they're informative sensors signaling when change is needed. The existence of emotion itself is profound. We find balance in responding to the signals of the world around us, through deliberate analysis and simply being present in the moment.
-                </p>
+                <h3 class="belief-title">Intentional Actions</h3>
+                <ul class="belief-list">
+                    <li class="belief-content">Innovation is awesome. And dangerous.</li>
+                    <li class="belief-content">We should design our future deliberately, not stumble into it. Always ask:</li>
+
+                    <ul class="belief-subcontent" style="list-style-type: none;">
+                        <li>How beneficial to humanity is it?</li>
+                        <li>What are the intended consequences?</li>
+                        <li>What are the potential hidden, unintended consequences?</li>
+                        <li>Is it necessary? What problem does it solve?</li>
+                    </ul>
+
+                    <li class="belief-content">Nothing should be taboo or too sacred for careful scrutiny. If you cannot understand something, you cannot make meaningful decisions about it.</li>
+
+                    <li class="belief-content">Things should be experienced: there is beauty in scrutiny and in experience. Each has its appropriate time and place.</li>
+
+                    <li class="belief-content">Subsidise good intentions with well-built systems:</li>
+                    <li class="belief-subcontent">Make it easy to have good intentions and take action towards them. Do not rely on the perpetual presence of willpower, good intentions, and mental clarity. Doing the right thing should be the path of least resistance.</li>
+                </ul>
+                
             </div>
 
-            <div class="belief-item">
-                <h3 class="belief-title">On Optimism as Strategy</h3>
-                <p class="belief-content">
-                    Optimism isn't naive—it's strategic. If you expect bad things and act accordingly, only bad outcomes are possible. But if you take constructive action, you create non-zero probability for good outcomes. You've fundamentally changed what's possible.
-                </p>
-            </div>
-
-            <div class="belief-item">
-                <h3 class="belief-title">On Technology & Responsibility</h3>
-                <p class="belief-content">
-                    We should design our future deliberately, not stumble into it. Technology should be developed with strong consideration for its usefulness and benefit to humanity—not solely because it's possible to build. Nothing should be taboo to careful scrutiny. If you cannot understand something, you cannot make meaningful decisions about it.
-                </p>
-            </div>
-
+            <!-- 3. Feedback & Growth -->
             <div class="belief-item">
                 <h3 class="belief-title">On Feedback & Growth</h3>
-                <p class="belief-content">
-                    Receiving feedback is awesome—it's your signal for improvement. Thank everyone who gives it, then critically analyze what you agree with. When someone makes a claim, it almost always contains some truth. People give feedback as conclusions; your job is to look for the underlying observations. Their conclusions may be wrong, but their observations rarely are.
-                </p>
+                <ul class="belief-list">
+                    <li class="belief-content">
+                        Being wrong is painful. Receiving feedback can be uncomfortable. But feedback is the mechanism by which we become less wrong over time. If you want to learn to juggle, you're going to have to drop a few balls.
+                    </li>
+                    <li class="belief-content">
+                        Choosing to provide feedback is hard — you choose to vocalize something that might be upsetting to the recipient. Thank everyone who contributes to your loss function, then critically analyze what you agree with and act on verifiable insights.
+                    </li>
+                    <li class="belief-content">
+                        If someone makes a claim, it almost always has some truth to it. Feedback arrives as conclusions tangled in emotions — look for the underlying observations. Their conclusions may not be accurate, but their observations rarely lie. They said something because they saw something.
+                    </li>
+                </ul>
+                
             </div>
 
+            <!-- 4. Disagreement & Understanding -->
             <div class="belief-item">
                 <h3 class="belief-title">On Disagreement & Understanding</h3>
-                <p class="belief-content">
-                    Most disagreements are differences of information, not values. Changing someone's mind requires them to dismantle and reconstruct part of their worldview—you're asking them to remove a piece of themselves. Be kind when doing so.
-                </p>
+                <ul class="belief-list">
+                    <li class="belief-content">
+                        Most disagreements are differences of information, not values. Changing someone's mind requires them to dismantle and reconstruct part of their worldview. To break down someone's worldview is to remove part of themselves. <b>Be kind when doing so.</b>
+                    </li>
+                    
+                    <li class="belief-content">
+                        Reframe others' goals to be aligned with your own. Understanding motives and shaping rewards is the fundamental skill of influence. To convince someone to take an action requires you to show them how that action moves them closer to one of their goals — and the higher the priority of that goal, the sooner they will act.
+                    </li>
+                </ul>
             </div>
 
+            <!-- 5. General Heuristics -->
             <div class="belief-item">
-                <h3 class="belief-title">On Diversity of Thought</h3>
-                <p class="belief-content">
-                    I'm thrilled that people are so different, with such diverse curiosities and interests. If the world were full of single-minded individuals, we'd lose everything that makes us whole. The collective intelligence of humanity depends on this diversity.
-                </p>
-            </div>
-
-            <div class="belief-item">
-                <h3 class="belief-title">On Learning from Others</h3>
-                <p class="belief-content">
-                    I cannot live every lifetime or explore every possibility. The best way to learn is to borrow from others' experiences as well as your own. For every human you encounter, there exists something you can learn from them.
-                </p>
+                <h3 class="belief-title">General Heuristics</h3>
+                <ul class="belief-list">
+                    <li>Pain is the difference between where you are and where you want to be</li>
+                    <li>Being wrong is painful</li>
+                    <li>Suffering is the perceived pain of a state or action</li>
+                    <li>Uncertainty can increase suffering</li>
+                    <li>Things worth doing are difficult</li>
+                    <li>Trying to reduce uncertainty in people's lives is a form of kindness</li>
+                    <li>Confidence is built on evidence — get started</li>
+                </ul>
             </div>
         </section>
     </div>
 
-    <!-- Art Page -->
-    <div class="page" id="art">
-        <div class="art-main">
-            <h1>Art & Creation</h1>
-            <p style="color: var(--text-secondary); font-size: 1.2rem; font-style: italic;">Exploring dimensions, light, and form</p>
+    <!-- ════════════ ABOUT ME PAGE ════════════ -->
+    <div class="page" id="aboutme">
+
+        <!-- Photo left, text right -->
+        <div class="about-layout">
+            <img class="profile-pic"
+                src="./res/Mukilan_Headshot.JPG"
+                alt="Mukilan's headshot"
+                onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\'><rect width=\'100%25\' height=\'100%25\' fill=\'%230b1220\'/><text x=\'50%25\' y=\'50%25\' fill=\'%23ffffff55\' font-family=\'Arial\' font-size=\'22\' text-anchor=\'middle\' dy=\'.3em\'>Add headshot.jpg</text></svg>'"
+            />
+            <div class="about-text">
+                <h1>About Me</h1>
+                <p>I'm a Master's student at Georgia Tech, working in the Structured Techniques for Algorithmic Robotics (STAR) Lab, advised by Harish Ravichandar.</p>
+                <p>I earned a B.S. in Computer Science from Georgia Tech in December 2025.</p>
+                <p>I serve as President of RoboJackets at Georgia Tech.</p>
+                <a href="#" class="about-back" data-page="home">← Back to Home</a>
+            </div>
         </div>
 
+        <!-- Experience Timeline -->
+        <div class="timeline-section">
+            <h2>Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 – Present</div>
+                    <div class="timeline-title">President, RoboJackets @ Georgia Tech</div>
+                    <div class="timeline-desc">Leading an organization of 460+ members. Building community, aligning incentives, and systematically growing competitive and outreach teams.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2024 – Present</div>
+                    <div class="timeline-title">M.S. Robotics, Georgia Tech</div>
+                    <div class="timeline-desc">Research in the STAR Lab on structured techniques for algorithmic robotics, advised by Harish Ravichandar.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 2025 - Aug 2025</div>
+                    <div class="timeline-title">Intern @ Amazon</div>
+                    <div class="timeline-desc">LLM inference -> speculative decding and microservice architecture</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jan 2025 – May 2025</div>
+                    <div class="timeline-title">Avoinics Intern @ Blue Origin</div>
+                    <div class="timeline-desc">Built Blue Ring Camera network communication</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2021 – 2025</div>
+                    <div class="timeline-title">B.S. Computer Science, Georgia Tech</div>
+                    <div class="timeline-desc">Graduated December 2025. Focused on intelligence and theory.</div>
+                </div>
+                <!-- Add earlier entries here — timeline grows downward into the past -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════════ ART PAGE ════════════ -->
+    <div class="page" id="art">
+        <div class="art-main">
+            <h1>Art & Creations</h1>
+        </div>
         <div class="art-sections">
             <div class="art-category">
                 <h2 class="art-category-title">3D Animation</h2>
                 <div class="art-grid">
                     <div class="art-item">
-                        <p class="art-placeholder">Robot Walk Cycle</p>
+                        <video class="video-player" controls>
+                            <source src="../res/pendulum_render.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <div class="art-item">
-                        <p class="art-placeholder">Environment Study</p>
+                        <video class="video-player" controls>
+                            <source src="../res/robot_walking.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <div class="art-item">
-                        <p class="art-placeholder">Character Animation</p>
+                        <video class="video-player" controls>
+                            <source src="../res/stormy_ocean_render.mp4" type="video/mp4">
+                        </video>
                     </div>
                 </div>
             </div>
@@ -163,39 +466,25 @@
             <div class="art-category">
                 <h2 class="art-category-title">Photography</h2>
                 <div class="art-grid">
-                    <div class="art-item">
-                        <p class="art-placeholder">Urban Geometry</p>
-                    </div>
-                    <div class="art-item">
-                        <p class="art-placeholder">Light Studies</p>
-                    </div>
-                    <div class="art-item">
-                        <p class="art-placeholder">Portraits</p>
-                    </div>
-                    <div class="art-item">
-                        <p class="art-placeholder">Architecture</p>
-                    </div>
+                    <div class="art-item"><p class="art-placeholder">Urban Geometry</p></div>
+                    <div class="art-item"><p class="art-placeholder">Light Studies</p></div>
+                    <div class="art-item"><p class="art-placeholder">Portraits</p></div>
+                    <div class="art-item"><p class="art-placeholder">Architecture</p></div>
                 </div>
             </div>
 
             <div class="art-category">
                 <h2 class="art-category-title">2D Traditional Art</h2>
                 <div class="art-grid">
-                    <div class="art-item">
-                        <p class="art-placeholder">Charcoal Sketches</p>
-                    </div>
-                    <div class="art-item">
-                        <p class="art-placeholder">Watercolor Landscapes</p>
-                    </div>
-                    <div class="art-item">
-                        <p class="art-placeholder">Ink Studies</p>
-                    </div>
+                    <div class="art-item"><p class="art-placeholder">Charcoal Sketches</p></div>
+                    <div class="art-item"><p class="art-placeholder">Watercolor Landscapes</p></div>
+                    <div class="art-item"><p class="art-placeholder">Ink Studies</p></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Blog Page -->
+    <!-- ════════════ BLOG PAGE ════════════ -->
     <div class="page" id="blog">
         <div class="blog-container">
             <div class="blog-header">
@@ -205,13 +494,13 @@
             <div class="blog-section">
                 <h2 class="blog-section-title">Thoughts</h2>
                 <ul class="blog-list" id="thoughts-list">
-                    <li class="loading">Loading posts...</li>
+                    <li class="loading">Loading posts…</li>
                 </ul>
             </div>
             <div class="blog-section">
                 <h2 class="blog-section-title">Short Stories</h2>
                 <ul class="blog-list" id="stories-list">
-                    <li class="loading">Loading posts...</li>
+                    <li class="loading">Loading posts…</li>
                 </ul>
             </div>
         </div>
@@ -224,8 +513,8 @@
     </div>
 
     <script>
+        /* ── Blog post registry ── */
         const blogPosts = {
-            
             thoughts: [
                 {
                     file: 'WetSocks.md',
@@ -245,14 +534,15 @@
                     file: 'thought_of_nothing.md',
                     title: 'Thought Of Nothing',
                     date: '2021',
-                    excerpt: 'It\'s nice sometimes, to think about being.'
+                    excerpt: "It's nice sometimes, to think about being."
                 }
             ]
         };
-        // Theme Toggle
+
+        /* ── Theme toggle ── */
         const themeToggle = document.getElementById('themeToggle');
         const html = document.documentElement;
-        
+
         themeToggle.addEventListener('click', () => {
             const currentTheme = html.getAttribute('data-theme');
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
@@ -261,205 +551,103 @@
             localStorage.setItem('theme', newTheme);
         });
 
-        // Load saved theme
         const savedTheme = localStorage.getItem('theme') || 'dark';
         html.setAttribute('data-theme', savedTheme);
         themeToggle.textContent = savedTheme === 'light' ? 'Dark Mode' : 'Light Mode';
 
-        // Page Navigation
-        const pages = document.querySelectorAll('.page');
-        const navLinks = document.querySelectorAll('[data-page]');
-        
+        /* ── Page navigation ── */
         function showPage(pageId) {
-            pages.forEach(page => page.classList.remove('active'));
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
             window.scrollTo(0, 0);
-            
-            // Reset blog post views when leaving blog page
             if (pageId !== 'blog') {
                 document.getElementById('dynamic-post-view').classList.remove('active');
                 document.querySelector('.blog-container').style.display = 'block';
             }
         }
-        
-        navLinks.forEach(link => {
+
+        document.querySelectorAll('[data-page]').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const pageId = link.getAttribute('data-page');
-                showPage(pageId);
+                if (pageId) showPage(pageId);
             });
         });
 
-        // // Blog Post Navigation
-        // const blogItems = document.querySelectorAll('.blog-item');
-        // const backButtons = document.querySelectorAll('[data-back]');
-        
-        // blogItems.forEach(item => {
-        //     item.addEventListener('click', () => {
-        //         const postId = 'post-' + item.getAttribute('data-post');
-        //         document.querySelector('.blog-container').style.display = 'none';
-        //         document.getElementById(postId).classList.add('active');
-        //         window.scrollTo(0, 0);
-        //     });
-        // });
-        
-        // backButtons.forEach(button => {
-        //     button.addEventListener('click', (e) => {
-        //         e.preventDefault();
-        //         document.querySelectorAll('.blog-post-view').forEach(view => {
-        //             view.classList.remove('active');
-        //         });
-        //         document.querySelector('.blog-container').style.display = 'block';
-        //         window.scrollTo(0, 0);
-        //     });
-        // });
-
-
-        // Load Blog Posts from Markdown Files
+        /* ── Markdown blog loader ── */
         async function loadMarkdownPost(filename) {
             try {
                 const response = await fetch(`posts/${filename}`);
                 if (!response.ok) throw new Error('Post not found');
-                const markdown = await response.text();
-                
-                // Parse markdown to HTML using marked.js
-                const html = marked.parse(markdown);
-                return html;
-            } catch (error) {
-                console.error('Error loading post:', error);
+                return marked.parse(await response.text());
+            } catch (err) {
+                console.error('Error loading post:', err);
                 return '<p>Error loading post. Please try again.</p>';
             }
         }
 
-        // Display Blog Post
         async function showBlogPost(filename, title, date) {
             const container = document.getElementById('post-content-container');
-            const postView = document.getElementById('dynamic-post-view');
-            
-            // Show loading state
+            const postView  = document.getElementById('dynamic-post-view');
             container.innerHTML = `
                 <h1 class="post-title">${title}</h1>
                 <p class="post-date">${date}</p>
-                <div class="post-content">
-                    <p class="loading">Loading post...</p>
-                </div>
-            `;
-            
+                <div class="post-content"><p class="loading">Loading post…</p></div>`;
             document.querySelector('.blog-container').style.display = 'none';
             postView.classList.add('active');
             window.scrollTo(0, 0);
-            
-            // Load markdown content
             const content = await loadMarkdownPost(filename);
-            
             container.innerHTML = `
                 <h1 class="post-title">${title}</h1>
                 <p class="post-date">${date}</p>
-                <div class="post-content">${content}</div>
-            `;
+                <div class="post-content">${content}</div>`;
         }
 
-        // Render Blog List
         function renderBlogList() {
-            const storiesList = document.getElementById('stories-list');
-            const thoughtsList = document.getElementById('thoughts-list');
-            
-            // Render stories
-            if (blogPosts.stories.length > 0) {
-                storiesList.innerHTML = blogPosts.stories.map(post => `
-                    <li class="blog-item" data-file="${post.file}" data-title="${post.title}" data-date="${post.date}">
-                        <h3 class="blog-item-title">${post.title}</h3>
-                        <p class="blog-item-date">${post.date}</p>
-                        ${post.excerpt ? `<p class="blog-item-excerpt">${post.excerpt}</p>` : ''}
-                    </li>
-                `).join('');
-            } else {
-                storiesList.innerHTML = '<li class="loading">No stories yet</li>';
-            }
-            
-            // Render thoughts
-            if (blogPosts.thoughts.length > 0) {
-                thoughtsList.innerHTML = blogPosts.thoughts.map(post => `
-                    <li class="blog-item" data-file="${post.file}" data-title="${post.title}" data-date="${post.date}">
-                        <h3 class="blog-item-title">${post.title}</h3>
-                        <p class="blog-item-date">${post.date}</p>
-                        ${post.excerpt ? `<p class="blog-item-excerpt">${post.excerpt}</p>` : ''}
-                    </li>
-                `).join('');
-            } else {
-                thoughtsList.innerHTML = '<li class="loading">No thoughts yet</li>';
-            }
-            
-            // Add click handlers
-            document.querySelectorAll('.blog-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    const file = item.getAttribute('data-file');
-                    const title = item.getAttribute('data-title');
-                    const date = item.getAttribute('data-date');
-                    showBlogPost(file, title, date);
-                });
-            });
+            const makeItem = p => `
+                <li class="blog-item" data-file="${p.file}" data-title="${p.title}" data-date="${p.date}">
+                    <h3 class="blog-item-title">${p.title}</h3>
+                    <p class="blog-item-date">${p.date}</p>
+                    ${p.excerpt ? `<p class="blog-item-excerpt">${p.excerpt}</p>` : ''}
+                </li>`;
+            document.getElementById('thoughts-list').innerHTML =
+                blogPosts.thoughts.length ? blogPosts.thoughts.map(makeItem).join('') : '<li class="loading">No thoughts yet</li>';
+            document.getElementById('stories-list').innerHTML =
+                blogPosts.stories.length  ? blogPosts.stories.map(makeItem).join('')  : '<li class="loading">No stories yet</li>';
+            document.querySelectorAll('.blog-item').forEach(item =>
+                item.addEventListener('click', () =>
+                    showBlogPost(item.dataset.file, item.dataset.title, item.dataset.date)));
         }
-
-        // Initialize blog on page load
         renderBlogList();
 
-        // Back button handler
-        document.querySelectorAll('[data-back]').forEach(button => {
-            button.addEventListener('click', (e) => {
+        /* ── Back button ── */
+        document.querySelectorAll('[data-back]').forEach(btn =>
+            btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 document.getElementById('dynamic-post-view').classList.remove('active');
                 document.querySelector('.blog-container').style.display = 'block';
                 window.scrollTo(0, 0);
-            });
-        });
-        // Parallax Effect
+            }));
+
+        /* ── Parallax ── */
         window.addEventListener('scroll', () => {
-            const parallaxBg = document.querySelector('.parallax-bg');
-            if (parallaxBg) {
-                const scrolled = window.pageYOffset;
-                parallaxBg.style.transform = `translateY(${scrolled * 0.5}px)`;
-            }
+            const bg = document.querySelector('.parallax-bg');
+            if (bg) bg.style.transform = `translateY(${window.pageYOffset * 0.5}px)`;
         });
 
-        // Scroll Animations
-        const observerOptions = {
-            threshold: 0.1,
-            mainMargin: '0px 0px -50px 0px'
-        };
+        /* ── Scroll-reveal ── */
+        const revealObserver = new IntersectionObserver(
+            entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+            { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+        );
+        document.querySelectorAll('.fade-in-on-scroll').forEach(el => revealObserver.observe(el));
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Interactive Robot (placeholder - ready for Blender animation integration)
+        /* ── Robot parallax ── */
         const robotContainer = document.querySelector('.robot-container');
-        
         document.addEventListener('mousemove', (e) => {
-            const x = (e.clientX / window.innerWidth - 0.5) * 20;
-            const y = (e.clientY / window.innerHeight - 0.5) * 20;
-            
             if (robotContainer && document.getElementById('home').classList.contains('active')) {
-                robotContainer.style.transform = `translate(${x}px, ${y}px)`;
+                robotContainer.style.transform = `translate(${(e.clientX / window.innerWidth - 0.5) * 20}px, ${(e.clientY / window.innerHeight - 0.5) * 20}px)`;
             }
-        });
-
-        // Smooth scroll for better UX
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#') {
-                    e.preventDefault();
-                }
-            });
         });
     </script>
 </body>
