@@ -20,220 +20,6 @@
         });">
     </script>
     <link rel="stylesheet" href="landing_style.css">
-    <style>
-        /* ── Mission statement bracket section ── */
-        .mission-section {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 4rem 3rem 3rem;
-        }
-        .mission-lead {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.75rem;
-            color: var(--text-secondary);
-            margin-bottom: 1.75rem;
-            font-style: bold;
-            line-height: 1.75;
-        }
-        .mission-bracket-group {
-            display: flex;
-            align-items: stretch;
-            gap: 1.5rem;
-        }
-        .mission-bracket-bar {
-            width: 4px;
-            background: var(--accent);
-            border-radius: 2px;
-            flex-shrink: 0;
-        }
-        .mission-items {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            padding: 0.25rem 0;
-        }
-        .mission-item {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            line-height: 1.5;
-        }
-        .mission-item span {
-            color: var(--accent);
-            font-style: italic;
-            margin-right: 0.1rem;
-        }
-
-        /* ── Styled belief lists ── */
-        .belief-list {
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0 1.5rem 0;
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-        }
-        .belief-list li {
-            /* display: flex; */
-            align-items: baseline;
-            gap: 0.8rem;
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            line-height: 1.9;
-        }
-        .belief-list li::before {
-            content: '';
-            display: inline-block;
-            width: 5px;
-            height: 5px;
-            min-width: 5px;
-            background: var(--accent);
-            border-radius: 50%;
-            margin-right: 0.5em;
-            vertical-align: middle;
-        }
-
-        /* ── LaTeX display block ── */
-        .latex-block {
-            background: var(--bg-secondary, #111);
-            border: 1px solid var(--border, #2a2a2a);
-            border-left: 4px solid var(--accent);
-            border-radius: 6px;
-            padding: 1.25rem 1.75rem;
-            margin: 1.25rem 0 1.5rem;
-            overflow-x: auto;
-        }
-        .latex-block .katex-display {
-            margin: 0.5rem 0;
-        }
-        .latex-note {
-            font-size: 0.87rem;
-            color: var(--text-secondary);
-            font-style: italic;
-            margin-top: 0.75rem;
-        }
-
-        /* ── Indented sub-content ── */
-        .belief-subcontent {
-            margin: 0.5rem 0 0.5rem 1.25rem;
-            padding-left: 1rem;
-            border-left: 2px solid var(--accent);
-            color: var(--text-secondary);
-            font-size: 0.97rem;
-            line-height: 1.8;
-        }
-
-        /* ── About Me two-column layout ── */
-        .about-layout {
-            display: grid;
-            grid-template-columns: 260px 1fr;
-            gap: 3.5rem;
-            align-items: start;
-            padding: 6rem 4rem 3rem;
-            max-width: 1050px;
-            margin: 0 auto;
-        }
-        .profile-pic {
-            width: 100%;
-            height: 25rem;
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            object-position: center top;
-            border-radius: 4px;
-            border: 1px solid var(--border, #2a2a2a);
-            display: block;
-        }
-        .about-text h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-        }
-        .about-text p {
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-            line-height: 1.85;
-            margin-bottom: 0.85rem;
-        }
-        .about-back {
-            display: inline-block;
-            margin-top: 1.5rem;
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: transform 0.3s ease;
-        }
-        .about-back:hover { transform: translateX(-5px); }
-
-        /* ── Experience timeline ── */
-        .timeline-section {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 2rem 4rem 6rem;
-        }
-        .timeline-section h2 {
-            font-size: 2rem;
-            margin-bottom: 2.5rem;
-            color: var(--accent);
-            border-bottom: 2px solid var(--border, #2a2a2a);
-            padding-bottom: 0.5rem;
-        }
-        .timeline {
-            position: relative;
-            padding-left: 2.25rem;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 8px;
-            bottom: 0;
-            width: 2px;
-            background: var(--border, #2a2a2a);
-        }
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2.5rem;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2.6rem;
-            top: 6px;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: var(--accent);
-            border: 2px solid var(--bg-primary, #0a0a0a);
-            box-shadow: 0 0 0 2px var(--accent);
-        }
-        .timeline-date {
-            font-size: 0.8rem;
-            color: var(--accent);
-            letter-spacing: 0.09em;
-            text-transform: uppercase;
-            margin-bottom: 0.3rem;
-        }
-        .timeline-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.15rem;
-            color: var(--text-primary);
-            margin-bottom: 0.35rem;
-        }
-        .timeline-desc {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        @media (max-width: 700px) {
-            .about-layout {
-                grid-template-columns: 1fr;
-                padding: 5rem 1.5rem 2rem;
-            }
-            .profile-pic { width: 150px; }
-            .timeline-section { padding: 1rem 1.5rem 4rem; }
-            .mission-section { padding: 3rem 1.5rem; }
-        }
-    </style>
 </head>
 <body>
     <nav>
@@ -270,7 +56,7 @@
             <div class="main-content">
                 <h1>Hi, I'm <a href="#" class="animated-link" data-page="aboutme">Mukilan</a></h1>
                 <p class="main-subtitle">I am a curious human who enjoys exploring possibilities, interacting with the world intentionally, and teaching machines what it means to be alive.
-                    I find it impossible to work with robots and not learn to love life a little bit more; you find the magnitude of complex ability that is hidden in the human mundane.</p>
+                    I find it impossible to build robots and not learn to love life a little bit more; you find the magnitude of complex ability that is hidden in the human mundane.</p>
             </div>
         </section>
 
@@ -291,12 +77,28 @@
         <section class="beliefs-section parallax-section">
             <div class="parallax-bg"></div>
             <h2 style="font-size: 3rem; margin-bottom: 3rem; text-align: center;">Core Beliefs</h2>
+            
+            <!-- General Heuristics -->
+            <div class="belief-item">
+                <h3 class="belief-title">General Heuristics</h3>
+                <ul class="belief-list">
+                    <li>There is something you can learn from every single person. Find out what that is. </li>
+                    <li>Things worth doing are difficult</li>
+                    <li>Purpose is better goal heuristic than happiness. With a clear sense of purpose the cost of inaction often outscales the cost of overcoming obstacles </li>
+                    <li>"Often you know what you must do, the hesitation is negotiating on comfort" - I can't seem to pin down a source at the moment</li>
+                    <li>Confidence is built on evidence — get started. Indecision is a cost incurring choice.</li>
+                    <li>Find High-Trust High-Competence individuals and add value to their lives</li>
+                    <li>The details make a difference, people notice (consiously or subconsicouly)</li>
+                    <li>Be the dumbest person in the smartest room. Then close the knowledge gap</li>                    
+                    <li class="belief-subcontent">The capacity to learn is a gift; The ability to learn is a skill; The willingness to learn is a choice.” ― Brian Herbert</li>
+                </ul>
+            </div>
 
             <!-- 1. Uncertainty & Information -->
             <div class="belief-item">
                 <h3 class="belief-title">On Uncertainty & Information</h3>
                 <ul class="belief-list">
-                    <li class="belief-content">Wager on hope. Have the audacity to believe that things can be better.</li>
+                    <li class="belief-content">Wager on hope. Have the audacity to believe that things can be better. Then do everything in your power to make it better. </li>
 
                     <div class="latex-block">
                         <div>$$P(\text{good} \mid a = \text{bad}) = 0 \pm \varepsilon$$</div>
@@ -306,7 +108,7 @@
                         <p class="latex-note">where $\varepsilon$ accounts for natural randomness in outcomes.</p>
                     </div>
 
-                    <li class="belief-content">Feelings are awesome sensors: there are no good or bad emotions, only informative ones. Yes, there are emotions that feel bad, and those are ones that are indicative of a need for change in actions. Feelings indicate something important find the source.
+                    <li class="belief-content">Feelings are effective sensors: there are no good or bad emotions, only informative ones. Yes, there are emotions that feel bad -> those are ones that are indicative of a need for change. Feelings indicate something important find the source.
                     </li>
                 </ul>
                 
@@ -326,7 +128,7 @@
                         <li>Is it necessary? What problem does it solve?</li>
                     </ul>
 
-                    <li class="belief-content">Nothing should be taboo or too sacred for careful scrutiny. If you cannot understand something, you cannot make meaningful decisions about it.</li>
+                    <li class="belief-content">Nothing should be taboo or too sacred for careful scrutiny. If you cannot understand something, you can not make meaningful decisions about it.</li>
 
                     <li class="belief-content">Things should be experienced: there is beauty in scrutiny and in experience. Each has its appropriate time and place.</li>
 
@@ -344,11 +146,15 @@
                         Being wrong is painful. Receiving feedback can be uncomfortable. But feedback is the mechanism by which we become less wrong over time. If you want to learn to juggle, you're going to have to drop a few balls.
                     </li>
                     <li class="belief-content">
-                        Choosing to provide feedback is hard — you choose to vocalize something that might be upsetting to the recipient. Thank everyone who contributes to your loss function, then critically analyze what you agree with and act on verifiable insights.
+                        Choosing to provide feedback is hard —> you choose to vocalize something that might be upsetting to the recipient. Thank everyone who contributes to your loss function, then critically analyze what you agree with and act on the verifiable insights.
                     </li>
                     <li class="belief-content">
-                        If someone makes a claim, it almost always has some truth to it. Feedback arrives as conclusions tangled in emotions — look for the underlying observations. Their conclusions may not be accurate, but their observations rarely lie. They said something because they saw something.
+                        If someone makes a claim, it almost always has some truth to it. Feedback arrives as conclusions tangled in emotions — look for the underlying observations (this is surprisingly hard). Their conclusions may not be accurate, but their observations rarely lie. They said something because they saw something.
                     </li>
+                    <li>Pain is the difference between where you are and where you want to be. Suffering is the perceived pain of a state or action.</li>
+                    <li>Being wrong is painful. Uncertainty can increase suffering</li>
+                    <li>Trying to reduce uncertainty in people's lives is a form of kindness, we should do so more often</li>
+                    
                 </ul>
                 
             </div>
@@ -367,19 +173,8 @@
                 </ul>
             </div>
 
-            <!-- 5. General Heuristics -->
-            <div class="belief-item">
-                <h3 class="belief-title">General Heuristics</h3>
-                <ul class="belief-list">
-                    <li>Pain is the difference between where you are and where you want to be</li>
-                    <li>Being wrong is painful</li>
-                    <li>Suffering is the perceived pain of a state or action</li>
-                    <li>Uncertainty can increase suffering</li>
-                    <li>Things worth doing are difficult</li>
-                    <li>Trying to reduce uncertainty in people's lives is a form of kindness</li>
-                    <li>Confidence is built on evidence — get started</li>
-                </ul>
-            </div>
+            
+
         </section>
     </div>
 
@@ -395,7 +190,7 @@
             />
             <div class="about-text">
                 <h1>About Me</h1>
-                <p>I'm a Master's student at Georgia Tech, working in the Structured Techniques for Algorithmic Robotics (STAR) Lab, advised by Harish Ravichandar.</p>
+                <p>I'm a Masters student at Georgia Tech, working in the Structured Techniques for Algorithmic Robotics (STAR) Lab, advised by Harish Ravichandar.</p>
                 <p>I earned a B.S. in Computer Science from Georgia Tech in December 2025.</p>
                 <p>I serve as President of RoboJackets at Georgia Tech.</p>
                 <a href="#" class="about-back" data-page="home">← Back to Home</a>
@@ -411,15 +206,20 @@
                     <div class="timeline-title">President, RoboJackets @ Georgia Tech</div>
                     <div class="timeline-desc">Leading an organization of 460+ members. Building community, aligning incentives, and systematically growing competitive and outreach teams.</div>
                 </div>
-                <div class="timeline-item">
+                <!-- <div class="timeline-item">
                     <div class="timeline-date">2024 – Present</div>
                     <div class="timeline-title">M.S. Robotics, Georgia Tech</div>
                     <div class="timeline-desc">Research in the STAR Lab on structured techniques for algorithmic robotics, advised by Harish Ravichandar.</div>
                 </div>
                 <div class="timeline-item">
+                    <div class="timeline-date">2021 – 2025</div>
+                    <div class="timeline-title">B.S. Computer Science, Georgia Tech</div>
+                    <div class="timeline-desc">Graduated December 2025. Focused on intelligence and theory.</div>
+                </div> -->
+                <div class="timeline-item">
                     <div class="timeline-date">May 2025 - Aug 2025</div>
                     <div class="timeline-title">Intern @ Amazon</div>
-                    <div class="timeline-desc">LLM inference -> speculative decding and microservice architecture</div>
+                    <div class="timeline-desc">LLM inference -> speculative decoding and microservice architecture</div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">Jan 2025 – May 2025</div>
@@ -427,15 +227,23 @@
                     <div class="timeline-desc">Built Blue Ring Camera network communication</div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">2021 – 2025</div>
-                    <div class="timeline-title">B.S. Computer Science, Georgia Tech</div>
-                    <div class="timeline-desc">Graduated December 2025. Focused on intelligence and theory.</div>
+                    <div class="timeline-date">May 2025 - Aug 2025</div>
+                    <div class="timeline-title">CyberSecurity Intern @ Arctic wold </div>
+                    <div class="timeline-desc">Blue teaming: system level dectections for WanaCry ransomware</div>
                 </div>
+                
+                
                 <!-- Add earlier entries here — timeline grows downward into the past -->
             </div>
         </div>
     </div>
 
+    <!-- TODO: add a projects page-->
+    <!--Project: NeRF build nerual radinace field from scratch-->
+
+    <!--Project: TODO: gaussian splat-->
+    <!--Project: TODO: diffusion-->
+    <!--Project: -->
     <!-- ════════════ ART PAGE ════════════ -->
     <div class="page" id="art">
         <div class="art-main">

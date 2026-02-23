@@ -1,29 +1,30 @@
-digitized memories
-
-Backup not found : We are cyborgs now
-Value in Cost -> the cost filter -> 
-
-I lost 481 contacts
 
 
-The part of me that remebers the names the interactions and face remains. the part of me that rembers phone numbers, emails, birthdays of friends, family, and aquaintances has left an empty gap.
 
-This valentines day I woke up to see that I had lost all of the contacts from the past 6 years of my life.
+The worry of ai slop.
+
+the reduced action potential of action lends to being able to make so amny 
 
 
 
 
-your memories: $5.99 /month forever
+it used to be that ideas were dime a dozen and its the actual implementation that matters
+
+30 years down the line that might no longer be true. that the question is answer simply by asking it. novel intersting questions become diffuclt to come by beasue as soon as you ask somehow the tools that we have available will be abl eot understand the neuances and requirements summon a solution. 
 
 
 
 
-how much of me is no longer only stored on my personal phsycial being?
-outsorucing memeris is nothign new, we have been usign cave walls and paper and even minds of others to help us remember things, 
-we exetenrial information inot a more peermante staten than our own intenral consiousness andd membery 
-this is like our long term member as oppposed to our ram
 
-the difference now is that it has becing easier to produce more data 
+what is really weird is that machines can go build but do they have curiosity? how do you understand that problem and go do it?
+why is it for a human hard to multiply matrcies but do such high abstraction hard things
+
+if we build general ai how would it be able to do both highlhy computational ability and the asbtraction level?
+
+
+
+
+the difference now is that it has becing easier to produce things. it stops being about actually implmeneting  
 
 in the past you had to sit down and medate on t yoru tohtos and write them down on parchemtn and, paper, or chisel them
 which meant thath you had to think abou tit, and each word would take a logn time
@@ -63,12 +64,11 @@ you do not need to brainwash poeple for them to hand over their freedoms.
 you simply have to offer them the promise of conviencne. 
 
 I am missing analog media:
-where ther are phsyical copies int he owrld that I understrand teh internal dyanmics of
+where ther are phsyical copies in the world that I understrand teh internal dyanmics of
 the digitial sytems have changes that take time to track
 
 
 
 songs:
 digital Silence - Peter McPoland
-Mr.Roboto
-Are we Alive - Siebold
+Mr.Roboto - Styx
