@@ -594,3 +594,216 @@ nav {
     opacity: 1;
     transform: translateY(0);
 }
+
+ /* ── Mission statement bracket section ── */
+.mission-section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 4rem 3rem 3rem;
+}
+.mission-lead {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.75rem;
+    font-style: bold;
+    line-height: 1.75;
+}
+.mission-bracket-group {
+    display: flex;
+    align-items: stretch;
+    gap: 1.5rem;
+}
+.mission-bracket-bar {
+    width: 4px;
+    background: var(--accent);
+    border-radius: 2px;
+    flex-shrink: 0;
+}
+.mission-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0.25rem 0;
+}
+.mission-item {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+.mission-item span {
+    color: var(--accent);
+    font-style: italic;
+    margin-right: 0.1rem;
+}
+
+/* ── Styled belief lists ── */
+.belief-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+.belief-list li {
+    /* display: flex; */
+    align-items: baseline;
+    gap: 0.8rem;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.9;
+}
+.belief-list li::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    min-width: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 0.5em;
+    vertical-align: middle;
+}
+
+/* ── LaTeX display block ── */
+.latex-block {
+    background: var(--bg-secondary, #111);
+    border: 1px solid var(--border, #2a2a2a);
+    border-left: 4px solid var(--accent);
+    border-radius: 6px;
+    padding: 1.25rem 1.75rem;
+    margin: 1.25rem 0 1.5rem;
+    overflow-x: auto;
+}
+.latex-block .katex-display {
+    margin: 0.5rem 0;
+}
+.latex-note {
+    font-size: 0.87rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-top: 0.75rem;
+}
+
+/* ── Indented sub-content ── */
+.belief-subcontent {
+    margin: 0.5rem 0 0.5rem 1.25rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--accent);
+    color: var(--text-secondary);
+    font-size: 0.97rem;
+    line-height: 1.8;
+}
+
+/* ── About Me two-column layout ── */
+.about-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 3.5rem;
+    align-items: start;
+    padding: 6rem 4rem 3rem;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+.profile-pic {
+    width: 100%;
+    height: 25rem;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 4px;
+    border: 1px solid var(--border, #2a2a2a);
+    display: block;
+}
+.about-text h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+}
+.about-text p {
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.85;
+    margin-bottom: 0.85rem;
+}
+.about-back {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: transform 0.3s ease;
+}
+.about-back:hover { transform: translateX(-5px); }
+
+/* ── Experience timeline ── */
+.timeline-section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2rem 4rem 6rem;
+}
+.timeline-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    color: var(--accent);
+    border-bottom: 2px solid var(--border, #2a2a2a);
+    padding-bottom: 0.5rem;
+}
+.timeline {
+    position: relative;
+    padding-left: 2.25rem;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 0;
+    width: 2px;
+    background: var(--border, #2a2a2a);
+}
+.timeline-item {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.6rem;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg-primary, #0a0a0a);
+    box-shadow: 0 0 0 2px var(--accent);
+}
+.timeline-date {
+    font-size: 0.8rem;
+    color: var(--accent);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+}
+.timeline-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+}
+.timeline-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+    .about-layout {
+        grid-template-columns: 1fr;
+        padding: 5rem 1.5rem 2rem;
+    }
+    .profile-pic { width: 150px; }
+    .timeline-section { padding: 1rem 1.5rem 4rem; }
+    .mission-section { padding: 3rem 1.5rem; }
+}

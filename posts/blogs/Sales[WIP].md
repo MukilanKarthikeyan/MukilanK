@@ -1,3 +1,12 @@
+Title:
+Subtitle:
+
+
+Sales: the Art of Structing Incentives
+
+reward shaping
+
+
 you can not coneince someone to do anything that they do not believe is in their best interest. 
 
 
