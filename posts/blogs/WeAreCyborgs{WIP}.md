@@ -23,7 +23,7 @@ i actually saw things in greater detail, and realized i didnt actually have to b
 
 in the show pantheon -> seperate blog post 
 
-they talk about uploaded intelligence where there is a continuaion of a phsyical human in the digital world. the idea of backups is limited in exploration in season 2
+they talk about uploaded intelligence where there is a continuation of a phsyical human in the digital world. the idea of backups is limited in exploration in season 2
 
 there is a signnimftio plot point around the degredation of a UI and beign able to boot from a backup. that either you never get to make new memories or you lose all o fyour old ones
 
